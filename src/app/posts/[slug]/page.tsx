@@ -9,7 +9,11 @@ const getCachedPost = cache((slug) => {
 	});
 });
 
-export default async function PostPage({ params }) {
+export default async function PostPage({
+	params,
+}: {
+	params: { slug: string };
+}) {
 	const post = await getCachedPost(params.slug);
 	//const post = await prisma.post.findUnique({
 	//	where: {
